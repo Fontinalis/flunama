@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import 'package:flunama/flunama.dart';
 
@@ -44,6 +43,11 @@ class _MyAppState extends State<MyApp> {
         ),
         body: MapBox(
           onMapCreated: _onMapCreated,
+          options: MapboxOptions(
+            styleURL: Style.satellite,
+            centerCoordinate: Coordinate(42, 47),
+            zoomLevel: 3.0,
+          ),
         ),
       ),
     );

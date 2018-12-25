@@ -1,27 +1,25 @@
 package io.barna.flunama;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
+
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugin.platform.PlatformView;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.MapboxMap;
-import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
-import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
 
 final class MapBoxController
     implements Application.ActivityLifecycleCallbacks,
@@ -65,14 +63,24 @@ final class MapBoxController
     @Override
     public void onMethodCall(MethodCall call, MethodChannel.Result result) {
         switch (call.method) {
-            case "map#waitForMap":
+            case "setCenterCoordinate:animated":
             {
-                if (mapView != null) {
-                    result.success(null);
-                    return;
+                this.mapboxMap.setCameraPosition(new CameraPosition.Builder()
+                        .target(Convert.toLatLng(call.argument("location")))
+                        .build());
+                result.success("success");
+            }
+            case "styleURL:set":
+            {
+                if (call.argument("styleURL") == null) {
+                    result.error("INVALID ARGUMENT", "styleURL is null", call.argument("styleURL"));
                 }
-                mapReadyResult = result;
-                break;
+                this.mapView.setStyleUrl((String) call.argument("styleURL"));
+                result.success("success");
+            }
+            case "styleURL:get":
+            {
+                result.success(this.mapboxMap.getStyleUrl());
             }
             default:
                 result.notImplemented();

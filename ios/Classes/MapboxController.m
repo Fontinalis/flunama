@@ -29,39 +29,39 @@
 @end
 
 @implementation FLTMapBoxController {
-  MGLMapView* _mapView;
-  int64_t _viewId;
-  FlutterMethodChannel* _channel;
-  NSObject<FlutterPluginRegistrar>* _registrar;
+    MGLMapView* _mapView;
+    int64_t _viewId;
+    FlutterMethodChannel* _channel;
+    NSObject<FlutterPluginRegistrar>* _registrar;
+    MapboxOptions* _options;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
                viewIdentifier:(int64_t)viewId
                     arguments:(id _Nullable)args
-                    registrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  if ([super init]) {
-    _viewId = viewId;
-
-    NSURL *url = [NSURL URLWithString:@"mapbox://styles/mapbox/streets-v10"];
-    _mapView = [[MGLMapView alloc] initWithFrame:frame styleURL:url];
-    _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(59.31, 18.06)
-            zoomLevel:9
-            animated:NO];
-    NSString* channelName =
-        [NSString stringWithFormat:@"barna.io/mapbox_%lld", viewId];
-    _channel = [FlutterMethodChannel methodChannelWithName:channelName
-                                           binaryMessenger:registrar.messenger];
-    __weak __typeof__(self) weakSelf = self;
-    [_channel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
-      if (weakSelf) {
-        [weakSelf onMethodCall:call result:result];
-      }
-    }];
-    _mapView.delegate = weakSelf;
-    _registrar = registrar;
-  }
-  return self;
+                    registrar:(NSObject<FlutterPluginRegistrar>*)registrar{
+    if ([super init]) {
+        _viewId = viewId;
+        
+        NSURL *url = [NSURL URLWithString:@"mapbox://styles/mapbox/streets-v10"];
+        _mapView = [[MGLMapView alloc] initWithFrame:frame styleURL:url];
+        _options = [[MapboxOptions alloc] init];
+        [_options apply:_mapView json:args[@"options"]];
+        
+        NSString* channelName =
+            [NSString stringWithFormat:@"barna.io/mapbox_%lld", viewId];
+        _channel = [FlutterMethodChannel methodChannelWithName:channelName
+                                               binaryMessenger:registrar.messenger];
+        __weak __typeof__(self) weakSelf = self;
+        [_channel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
+            if (weakSelf) {
+                [weakSelf onMethodCall:call result:result];
+            }
+        }];
+        _mapView.delegate = weakSelf;
+        _registrar = registrar;
+    }
+    return self;
 }
 
 - (UIView*)view {
@@ -84,8 +84,6 @@
         result(FlutterMethodNotImplemented);
     }
 }
-
-#pragma mark - FLTMapBoxOptionsSink methods
 
 static double toDouble(id json) {
   NSNumber* data = json;

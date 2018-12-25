@@ -1,12 +1,13 @@
 #import <Flutter/Flutter.h>
 #import <Mapbox/Mapbox.h>
+#import "MapboxOptions.h"
 
 @protocol FLTMapBoxOptionsSink
 - (CLLocationCoordinate2D)toLocation:(BOOL)enabled;
 @end
 
 @interface FLTMapBoxController
-    : NSObject <MGLMapViewDelegate, FLTMapBoxOptionsSink, FlutterPlatformView>
+    : NSObject <MGLMapViewDelegate, FlutterPlatformView>
 - (_Nullable instancetype)initWithFrame:(CGRect)frame
                viewIdentifier:(int64_t)viewId
                     arguments:(id _Nullable)args

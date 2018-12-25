@@ -2,8 +2,18 @@ part of flunama;
 
 class MapboxOptions {
   String styleURL;
+  Coordinate centerCoordinate;
+  double zoomLevel;
 
-  MapboxOptions(this.styleURL);
+  MapboxOptions({
+      String styleURL, 
+      Coordinate centerCoordinate,
+      double zoomLevel
+    }) {
+      this.styleURL = styleURL;
+      this.centerCoordinate = centerCoordinate;
+      this.zoomLevel = zoomLevel;
+    }
 
    Map<String, dynamic> toMap() {
     final Map<String, dynamic> optionsMap = <String, dynamic>{};
@@ -15,6 +25,8 @@ class MapboxOptions {
     }
 
     addIfNonNull('styleURL', styleURL);
+    addIfNonNull('centerCoordinate', centerCoordinate.toJSON());
+    addIfNonNull('zoomLevel', zoomLevel);
     return optionsMap;
   }
 }
