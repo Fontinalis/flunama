@@ -24,10 +24,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "asd",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("MapBox on iOS"),
+          title: Text("flunama example"),
           actions: <Widget>[
             FlatButton(
               child: Icon(Icons.gps_fixed),

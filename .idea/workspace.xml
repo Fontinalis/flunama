@@ -7,17 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80a5441-4a21-4a7b-b547-aa299af72540" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ios/Classes/MapboxOptions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Classes/MapboxOptions.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/Convert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/MapBoxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/MapBoxController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flunama.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flunama.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/MapboxController.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/MapboxController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/MapboxController.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/MapboxController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/mapbox.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/mapbox.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/options.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -61,8 +51,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
-    <option name="y" value="86" />
+    <option name="x" value="24" />
+    <option name="y" value="118" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -177,8 +167,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="86" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="24" y="118" width="1400" height="1000" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
