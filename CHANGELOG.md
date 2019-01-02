@@ -1,3 +1,4 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Published package
+* Add Android and iOS initial support

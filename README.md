@@ -1,14 +1,17 @@
 # flunama
 
-A new flutter plugin project.
+A flutter package for Mapbox widget. Can create a Maobix map widget for Android and iOS,
+features are now limited and the package is **still under  development**.
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+### Android
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+1. Have to add the following line to `android/app/build.gradle`.
+
+```implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.7.2'```
+
+2. Add the following line to `MainActivity.java`.
+
+`Mapbox.getInstance(this, "<--mapbox_token_here-->");`
+
