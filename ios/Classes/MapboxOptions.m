@@ -34,6 +34,13 @@
     if(_zoomLevel) {
         zoomLevel = toDouble(_zoomLevel);
     }
+
+//    accessToken check
+    id _accessTokenRaw = data[@"accessToken"];
+    if(_accessTokenRaw) {
+        NSString* _accessToken = _accessTokenRaw;
+        [MGLAccountManager setAccessToken:_accessToken];
+    }
 }
 
 - (void)apply:(MGLMapView*)_view json:(id)json {

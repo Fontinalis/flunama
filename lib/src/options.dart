@@ -4,8 +4,11 @@ class MapboxOptions {
   String styleURL;
   Coordinate centerCoordinate;
   double zoomLevel;
+  String accessToken;
 
-  MapboxOptions({
+  MapboxOptions(
+    @required this.accessToken,
+    {
       String styleURL, 
       Coordinate centerCoordinate,
       double zoomLevel
@@ -27,6 +30,7 @@ class MapboxOptions {
     addIfNonNull('styleURL', styleURL);
     addIfNonNull('centerCoordinate', centerCoordinate.toJSON());
     addIfNonNull('zoomLevel', zoomLevel);
+    addIfNonNull('accessToken', accessToken);
     return optionsMap;
   }
 }

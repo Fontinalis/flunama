@@ -43,5 +43,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.7.2'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.8.1'
 }

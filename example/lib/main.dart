@@ -43,6 +43,7 @@ class _MyAppState extends State<MyApp> {
         body: MapBox(
           onMapCreated: _onMapCreated,
           options: MapboxOptions(
+            "pk.eyJ1IjoiZm9udGluYWxpcyIsImEiOiJjamo3N3QxZzkwcGZkM3Jzd3R0OHd3eG9jIn0.MDmSPZyfbQ7NP0toOzSnyg",
             styleURL: Style.satellite,
             centerCoordinate: Coordinate(42, 47),
             zoomLevel: 3.0,

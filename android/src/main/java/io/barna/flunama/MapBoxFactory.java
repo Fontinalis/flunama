@@ -26,7 +26,7 @@ public class MapBoxFactory extends PlatformViewFactory {
         Map<String, Object> params = (Map<String, Object>) args;
         final MapBoxBuilder builder = new MapBoxBuilder();
 
-        Convert.interpretMapboxMapOptions(params.get("options"), builder);
+        Convert.interpretMapboxMapOptions(context, params.get("options"), builder);
 
         return builder.build(id, context, mActivityState, mPluginRegistrar);
     }

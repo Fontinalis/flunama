@@ -1,13 +1,16 @@
 package io.barna.flunama;
 
+import android.content.Context;
+
 import java.util.Map;
 import java.util.List;
 
+import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
 class Convert {
-    static void interpretMapboxMapOptions(Object o, MapBoxBuilder builder) {
+    static void interpretMapboxMapOptions(Context context, Object o, MapBoxBuilder builder) {
         final Map<?, ?> data = toMap(o);
 
         final Object styleURL = data.get("styleURL");
@@ -23,6 +26,11 @@ class Convert {
         final Object zoomLevel = data.get("zoomLevel");
         if (zoomLevel != null) {
             builder.options.camera(new CameraPosition.Builder().zoom(((Number) zoomLevel).doubleValue()).build());
+        }
+
+        final Object accessToken = data.get("accessToken");
+        if (accessToken != null) {
+            Mapbox.getInstance(context, (String) accessToken);
         }
     }
 
