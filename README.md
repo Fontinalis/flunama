@@ -15,3 +15,6 @@ features are now limited and the package is **still under  development**.
 
 `Mapbox.getInstance(this, "<--mapbox_token_here-->");`
 
+### iOS
+
+1. Do a `pod install` in your folder
