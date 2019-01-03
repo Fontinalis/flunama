@@ -36,8 +36,7 @@ class MapBoxController extends ChangeNotifier {
 
   Future<dynamic> _handleMethodCall(MethodCall call) async {
     switch (call.method) {
-      case "setCenterCoordinate:animated":
-        
+      case "onTapCallback":
         break;
       default:
         throw MissingPluginException();
@@ -78,6 +77,19 @@ class MapBoxController extends ChangeNotifier {
         <String, Object>{},
       );
       return styleURL;
+    } on PlatformException catch (e) {
+      return new Future.error(e);
+    }
+  }
+
+  Future<Null> addPolyline(PolylineOptions p) async {
+    try {
+      await _channel.invokeMethod(
+        'addPolyline',
+        <String, Object>{
+          'polyline': p.toJSON(),
+        },
+      );
     } on PlatformException catch (e) {
       return new Future.error(e);
     }

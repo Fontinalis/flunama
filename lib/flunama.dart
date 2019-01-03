@@ -10,3 +10,5 @@ import 'package:flutter/services.dart';
 part 'src/mapbox.dart';
 part 'src/controller.dart';
 part 'src/options.dart';
+part 'src/coordinates.dart';
+part 'src/overlays.dart';

@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.List;
 
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.annotations.Polyline;
+import com.mapbox.mapboxsdk.annotations.PolylineOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 
@@ -44,5 +46,17 @@ class Convert {
         }
         final List<?> data = (List<?>) o;
         return new LatLng(((Number) data.get(0)).doubleValue(), ((Number) data.get(1)).doubleValue());
+    }
+
+    static PolylineOptions toPolylineOptions(Object o) {
+        if (o == null) {
+            return null;
+        }
+        final List<?> data = (List<?>) o;
+        PolylineOptions po = new PolylineOptions();
+        for (int i = 0; i < data.size(); i++) {
+            po.add(toLatLng(data.get(i)));
+        }
+        return po;
     }
 }

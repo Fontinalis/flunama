@@ -1,9 +1,11 @@
 part of flunama;
 
+typedef void onTapCallback(Coordinate coord);
+
 class MapboxOptions {
-  String styleURL;
-  Coordinate centerCoordinate;
-  double zoomLevel;
+  String styleURL = Style.streets;
+  Coordinate centerCoordinate = Coordinate(0, 0);
+  double zoomLevel = 1;
   String accessToken;
 
   MapboxOptions(
@@ -13,9 +15,15 @@ class MapboxOptions {
       Coordinate centerCoordinate,
       double zoomLevel
     }) {
-      this.styleURL = styleURL;
-      this.centerCoordinate = centerCoordinate;
-      this.zoomLevel = zoomLevel;
+      if (styleURL != null) { 
+        this.styleURL = styleURL;
+      }
+      if (centerCoordinate != null) {
+        this.centerCoordinate = centerCoordinate;
+      }
+      if (zoomLevel != null) {
+        this.zoomLevel = zoomLevel;
+      }
     }
 
    Map<String, dynamic> toMap() {
@@ -45,15 +53,4 @@ class Style {
       "mapbox://styles/mapbox/satellite-streets-v10";
   static final String trafficDay = "mapbox://styles/mapbox/traffic-day-v2";
   static final String trafficNight = "mapbox://styles/mapbox/traffic-night-v2";
-}
-
-class Coordinate {
-  double latitude;
-  double longitude;
-
-  Coordinate(this.latitude, this.longitude);
-
-  dynamic toJSON() {
-    return <double>[latitude, longitude];
-  }
 }

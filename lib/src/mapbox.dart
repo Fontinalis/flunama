@@ -3,13 +3,14 @@ part of flunama;
 typedef void MapCreatedCallback(MapBoxController controller);
 
 class MapBox extends StatefulWidget {
-  MapBox({
+  MapBox(
     @required this.onMapCreated,
     this.gestureRecognizers,
     this.options,
-  }) {
+  ) {
     if (options == null) {
       options = MapboxOptions(
+        "empty_token",
         styleURL: Style.streets,
         centerCoordinate: Coordinate(0, 0),
         zoomLevel: 1.0,

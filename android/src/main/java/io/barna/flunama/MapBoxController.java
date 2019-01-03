@@ -82,6 +82,14 @@ final class MapBoxController
             {
                 result.success(this.mapboxMap.getStyleUrl());
             }
+            case "addPolyline":
+            {
+                if (call.argument("polyline") == null) {
+                    result.error("INVALID ARGUMENT", "polyline is null", call.argument("polyline"));
+                }
+                this.mapboxMap.addPolyline(Convert.toPolylineOptions(call.argument("polyline")));
+                result.success("success");
+            }
             default:
                 result.notImplemented();
         }
