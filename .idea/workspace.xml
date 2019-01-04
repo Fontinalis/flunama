@@ -7,15 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d80a5441-4a21-4a7b-b547-aa299af72540" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/Convert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/MapBoxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/io/barna/flunama/MapBoxController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flunama.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flunama.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/mapbox.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/mapbox.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/options.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/options.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/coordinates.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/coordinates.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/overlays.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/overlays.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />

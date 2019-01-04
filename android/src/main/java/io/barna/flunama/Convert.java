@@ -2,6 +2,8 @@ package io.barna.flunama;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
@@ -48,6 +50,13 @@ class Convert {
         return new LatLng(((Number) data.get(0)).doubleValue(), ((Number) data.get(1)).doubleValue());
     }
 
+    static Object LatLngToObject(LatLng latLng) {
+        List<Object> out = new ArrayList<Object>();
+        out.add(latLng.getLatitude());
+        out.add(latLng.getLongitude());
+        return out;
+    };
+
     static PolylineOptions toPolylineOptions(Object o) {
         if (o == null) {
             return null;
@@ -58,5 +67,15 @@ class Convert {
             po.add(toLatLng(data.get(i)));
         }
         return po;
+    }
+
+    static Object PolylineToObject(Polyline p) {
+        Map<String, List<Object>> out = new HashMap<>();
+        List<Object> coords = new ArrayList<Object>();
+        for (int i = 0; i < p.getPoints().size(); i++) {
+            coords.add(LatLngToObject(p.getPoints().get(i)));
+        };
+        out.put("coordinates", coords);
+        return out;
     }
 }

@@ -82,14 +82,18 @@ class MapBoxController extends ChangeNotifier {
     }
   }
 
-  Future<Null> addPolyline(PolylineOptions p) async {
+  Future<Polyline> addPolyline(PolylineOptions po) async {
     try {
+      Polyline p;
       await _channel.invokeMethod(
         'addPolyline',
         <String, Object>{
-          'polyline': p.toJSON(),
+          'polyline': po.toJSON(),
         },
-      );
+      ).then((dynamic o) {
+        p = Polyline.fromJSON(o);
+      });
+      return p;
     } on PlatformException catch (e) {
       return new Future.error(e);
     }

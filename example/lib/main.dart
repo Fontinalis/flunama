@@ -36,7 +36,9 @@ class _MyAppState extends State<MyApp> {
                 //  debugPrint(url);
                 //});
                 controller.setStyleURL(Style.satelliteStreets);
-                controller.addPolyline(PolylineOptions(<Coordinate>[Coordinate(47.5, 19.05), Coordinate(50, 20), Coordinate(46.5, 20), Coordinate(47.5, 19.05)]));
+                controller.addPolyline(PolylineOptions(<Coordinate>[Coordinate(47.5, 19.05), Coordinate(50, 20), Coordinate(46.5, 20), Coordinate(47.5, 19.05)])).then((Polyline poly) {
+                  debugPrint(poly.coordinates[0].latitude.toString());
+                });
               },
             )
           ],

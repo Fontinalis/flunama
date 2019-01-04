@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
+import com.mapbox.mapboxsdk.annotations.Polyline;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
@@ -69,6 +70,7 @@ final class MapBoxController
                         .target(Convert.toLatLng(call.argument("location")))
                         .build());
                 result.success("success");
+                break;
             }
             case "styleURL:set":
             {
@@ -77,18 +79,21 @@ final class MapBoxController
                 }
                 this.mapView.setStyleUrl((String) call.argument("styleURL"));
                 result.success("success");
+                break;
             }
             case "styleURL:get":
             {
                 result.success(this.mapboxMap.getStyleUrl());
+                break;
             }
             case "addPolyline":
             {
                 if (call.argument("polyline") == null) {
                     result.error("INVALID ARGUMENT", "polyline is null", call.argument("polyline"));
                 }
-                this.mapboxMap.addPolyline(Convert.toPolylineOptions(call.argument("polyline")));
-                result.success("success");
+                Polyline polyline = this.mapboxMap.addPolyline(Convert.toPolylineOptions(call.argument("polyline")));
+                result.success(Convert.PolylineToObject(polyline));
+                break;
             }
             default:
                 result.notImplemented();
